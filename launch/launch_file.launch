@@ -3,8 +3,7 @@
  <!-- Create an argument to determine whether to use a XACRO or URDF file. -->
  <arg name="use_xacro" default="false" />
 
-  <!-- What is the name of the file to use? This can be passed into the launch
-file. -->
+  <!-- What is the name of the file to use? This can be passed into the launch file. -->
   <arg if="$(arg use_xacro)" name="filename" default="robot.xacro" />
   <arg unless="$(arg use_xacro)" name="filename" default="robot.urdf" />
   
@@ -19,22 +18,18 @@ xacro)/xacro.py --inorder $(arg file)" />
 <param unless="$(arg use_xacro)" name="robot_description" textfile="$(arg file)" />
 
 
-   <!-- Determines whether to use GUI and joint state publisher. --> 
-    <arg name="use_gui" default="true" />
+  <!-- Determines whether to use GUI. --> 
+  <arg name="use_gui" default="true" />
     
-    <arg if="$(arg use_gui)" name="use_gui true" value="true" />
-    <arg unless="$(arg use_gui)" name="use_gui false" value="false" />  
+  <arg if="$(arg use_gui)" name="use_gui true" value="true" />
+  <arg unless="$(arg use_gui)" name="use_gui false" value="false" />  
     
-    <param if="$(arg use_gui)" name="use_gui" value="true"/>
-    <param unless="$(arg use_gui)" name="use_gui" value="false"/> 
+  <param if="$(arg use_gui)" name="use_gui" value="true"/>
+  <param unless="$(arg use_gui)" name="use_gui" value="false"/> 
     
-    <!-- Runs joint state publisher if use_gui is true -->
-    <node if="$(arg use_gui)"  pkg="joint_state_publisher" type="joint_state_publisher"
+   <!-- Runs joint state publisher if use_gui is true -->
+   <node if="$(arg use_gui)"  pkg="joint_state_publisher" type="joint_state_publisher"
      name="joint_state_publisher" />
-  
-  
-  <!-- Publishes to /tf and /tf_static-->
-  <node pkg="rostopic" type="rostopic" name="rostopic" args="pub tf tf_static" />
 
   
   <!-- Runs the robot_state_publisher. -->

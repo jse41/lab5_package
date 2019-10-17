@@ -1,4 +1,7 @@
 #lab4_package
+<h1>Purpose of the Lab</h1>
+The purpose of this laboratory was to create a robot from a robot description using URDF, XACRO, and ROS utilities to perform transforms. <br><br>
+
 <h1>Launch Instruction</h1>
 To launch urdf version of robot use <br>
 <code>roslaunch lab4_package launch_file.launch</code><br><br>

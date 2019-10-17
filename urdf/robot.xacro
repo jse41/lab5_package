@@ -8,7 +8,7 @@
   <link name="base">	    
 
     <visual>
-      <origin xyz="-0.2 0 .93" rpy="0 0 0"/>
+      <origin xyz="-0.2 0 .99" rpy="0 0 0"/>
       <geometry>
         <box size="0.94 0.78 1.98"/>
       </geometry>
@@ -18,7 +18,7 @@
     </visual>
     
     <collision>
-      <origin xyz="-0.2 0 .93" rpy="0 0 0"/>
+      <origin xyz="-0.2 0 .99" rpy="0 0 0"/>
       <geometry>
         <box size="0.94 0.78 1.98"/>
       </geometry>
