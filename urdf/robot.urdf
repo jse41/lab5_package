@@ -2,7 +2,7 @@
   <link name="base">	    
 
     <visual>
-      <origin xyz="-0.2 0 .93" rpy="0 0 0"/>
+      <origin xyz="-0.2 0 .9" rpy="0 0 0"/>
       <geometry>
         <box size="0.94 0.78 1.98"/>
       </geometry>
@@ -12,7 +12,7 @@
     </visual>
     
     <collision>
-      <origin xyz="-0.2 0 .93" rpy="0 0 0"/>
+      <origin xyz="-0.2 0 .9" rpy="0 0 0"/>
       <geometry>
         <box size="0.94 0.78 1.98"/>
       </geometry>
@@ -125,6 +125,48 @@
 
   </link>
   
+  <link name="wheel_right">	    
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.2" length="0.05"/>
+      </geometry>
+      <material name="Cyan">
+      	<color rgba="0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.2" length="0.05"/>
+      </geometry>
+    </collision>
+
+  </link>
+  
+  <link name="wheel_center">	    
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.15" length="0.05"/>
+      </geometry>
+      <material name="Cyan">
+      	<color rgba="0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.15" length="0.05"/>
+      </geometry>
+    </collision>
+
+  </link>
+  
   <joint name="base_laser_vert_bottom_joint" type="fixed">
     <parent link="base"/>
     <child link="laser_vert_bottom"/>
@@ -149,10 +191,24 @@
     <origin xyz="0.2325 0.0001 1.9201" rpy="-0.0012 0.1146 -0.0015"/>
   </joint>
   
-  <joint name="base_wheel_left_joint" type="fixed">
+  <joint name="base_wheel_left_joint" type="continuous">
     <parent link="base"/>
     <child link="wheel_left"/>
     <origin xyz="-0.10 0.4 0.0" rpy="-1.57 0.0 0.0"/>
+    <limit effort="1.0" velocity="1.0"/>
+  </joint>
+  
+  <joint name="base_wheel_right_joint" type="continuous">
+    <parent link="base"/>
+    <child link="wheel_right"/>
+    <origin xyz="-0.10 -0.4 0.0" rpy="-1.57 0.0 0.0"/>
+    <limit effort="1.0" velocity="1.0"/>
+  </joint>
+  
+  <joint name="base_wheel_center_joint" type="continuous">
+    <parent link="base"/>
+    <child link="wheel_center"/>
+    <origin xyz="-0.10 0.0 0.0" rpy="-1.57 0.0 0.0"/>
     <limit effort="1.0" velocity="1.0"/>
   </joint>
   

@@ -19,36 +19,25 @@ xacro)/xacro.py --inorder $(arg file)" />
 <param unless="$(arg use_xacro)" name="robot_description" textfile="$(arg file)" />
 
 
-
-<!-- STILL NEED GUI TO POP UP -->
    <!-- Determines whether to use GUI and joint state publisher. --> 
     <arg name="use_gui" default="true" />
     
-    <arg if="$(arg use_gui)" name="true" default="true" />
-  <!-- <arg unless="$(arg use_gui)" name="false" default="false" /> --> 
+    <arg if="$(arg use_gui)" name="use_gui true" value="true" />
+    <arg unless="$(arg use_gui)" name="use_gui false" value="false" />  
     
-    <!-- Runs joint state publisher if usegui is true -->
+    <param if="$(arg use_gui)" name="use_gui" value="true"/>
+    <param unless="$(arg use_gui)" name="use_gui" value="false"/> 
+    
+    <!-- Runs joint state publisher if use_gui is true -->
     <node if="$(arg use_gui)"  pkg="joint_state_publisher" type="joint_state_publisher"
      name="joint_state_publisher" />
-     
-    <!-- <param if="$(arg use_gui)" 
-     if="$(arg use_xacro)" name="use_gui" command="$(find xacro)/xacro.py --> <!--inorder $(arg file)"
-	elseif="$(arg use_xacro)" name="use_gui" command="$(arg file)"/> -->
-    
-   <param if="$(arg use_gui)" name="use_gui" command="true"/>
-    <param unless="$(arg use_gui)" name="use_gui" command="false"/> -->
-    
-    
-    
-    <!-- <arg if="$(arg use_gui)" name="filename" default="robot.xacro" />
-    <arg unless="$(arg use_gui)" name="filename" default="robot.urdf" /> -->
   
   
   <!-- Publishes to /tf and /tf_static-->
   <node pkg="rostopic" type="rostopic" name="rostopic" args="pub tf tf_static" />
 
   
-  <!-- Run the robot_state_publisher. -->
+  <!-- Runs the robot_state_publisher. -->
   <node pkg="robot_state_publisher" type="robot_state_publisher"
 name="robot_state_publisher" /> 
 
