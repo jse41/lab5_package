@@ -1,112 +1,34 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="macs_robot">
-    <!-- Include the XACRO file that defines a Hokuyo LIDAR. -->
-<xacro:include filename="$(find gazebo_plugins)/test/multi_robot_scenario/xacro/laser/hokuyo.xacro" />
-    <!-- Include the XACRO file that defines a Hokuyo LIDAR. -->
-<xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="navvis_m6">
 
-  <link name="base">	    
-
-    <visual>
-      <origin xyz="-0.2 0 .99" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.94 0.78 1.98"/>
-      </geometry>
-      <material name="Cyan">
-      	<color rgba="0 1.0 1.0 1.0"/>
-      </material>
-    </visual>
-    
-    <collision>
-      <origin xyz="-0.2 0 .99" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.94 0.78 1.98"/>
-      </geometry>
-    </collision>
-
-  </link>
-
-    
-    <xacro:laser name="laser_vert_bottom" parent="base" xyz="0.3157894464801903 -0.002068548615034871 0.5099999434059285" rpy="3.1354753 -1.3045001 0.0024658" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser" />
-    
-    <xacro:laser name="laser_vert_top_right" parent="base" xyz="0.2978 -0.1450 1.8451" rpy="-1.1760 0.6313 1.9377" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser" />
-    
-    <xacro:laser name="laser_vert_top_left" parent="base" xyz="0.2997 0.1531 1.8451" rpy="1.1760 0.6198 1.9560" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser" />
-
+  <xacro:include filename="$(find lab4_package)/urdf/lab4_robot.xacro" />
   
-
-  <!-- Invoke the macro to define the Hokuyo LIDAR. -->
-  <VLP-16 parent="base" name="laser_horiz" topic="laser_horiz/packets" hz="10" samples="440" gpu="false">
-    <origin xyz="0.2325416305773505 -0.0001380069427607134 1.920122926231907" rpy="-0.0012068 0.114646 -0.0015308" /> 
-  </VLP-16>
-  
-  
-  <xacro:macro name="xacro_name" params="suffix reflect">
-  
-    <link name="wheel__${suffix}">	    
-
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.2" length="0.05"/>
-      </geometry>
-      <material name="Cyan">
-      	<color rgba="0 1.0 1.0 1.0"/>
-      </material>
-    </visual>
-    
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.2" length="0.05"/>
-      </geometry>
-    </collision>
-
-  </link>
-  </xacro:macro>
-  <xacro:xacro_name suffix="left" reflect="1" />
-  <xacro:xacro_name suffix="right" reflect="-1" />
-  
-      <link name="wheel__center">	    
-
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.15" length="0.05"/>
-      </geometry>
-      <material name="Cyan">
-      	<color rgba="0 1.0 1.0 1.0"/>
-      </material>
-    </visual>
-    
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.15" length="0.05"/>
-      </geometry>
-    </collision>
-
+  <link name="base_link">
   </link>
   
-  
-  <xacro:macro name="xacro_name" params="suffix reflect">
-    
-  <joint name="base_wheel__${suffix}_joint" type="continuous">
-    <parent link="base"/>
-    <child link="wheel__${suffix}"/>
-    <origin xyz="-0.10 ${reflect * 0.4} 0.0" rpy="${-pi/2} 0.0 0.0"/>
-    <limit effort="1.0" velocity="1.0"/>
+  <joint name="base_link_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="base" />
+    <origin xyz="0.07 0 1.792" rpy="0.0 ${pi} 0.0" />
   </joint>
-  
-  </xacro:macro>
-  <xacro:xacro_name suffix="left" reflect="1" />
-  <xacro:xacro_name suffix="right" reflect="-1" />
-  
-  <joint name="base_wheel__center_joint" type="continuous">
-    <parent link="base"/>
-    <child link="wheel__center"/>
-    <origin xyz="0.10 0.0 0.0" rpy="${-pi/2} 0.0 0.0"/>
-    <limit effort="1.0" velocity="1.0"/>
+
+  <joint name="base_link_imu_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="imu" />
+    <origin xyz="0.0 0.0 0.0" rpy="3.1405788 0.0034281 3.1382064" />
   </joint>
-  
+
+  <link name="imu">
+    <visual>
+    <geometry>
+    <sphere radius="0.1" />
+    </geometry>
+    </visual>
+    <collision>
+    <geometry>
+    <sphere radius="0.1" />
+    </geometry>
+    </collision>
+  </link>
+
 </robot>

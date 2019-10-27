@@ -6,8 +6,8 @@ The purpose of this laboratory was to create a robot from a robot description us
 To launch urdf version of robot use <br>
 <code>roslaunch lab4_package launch_file.launch</code><br><br>
 
-To launch xacro version of robot use <br>
-<code>roslaunch lab4_package launch_file.launch use_xacro:==true</code><br><br>
+To launch lab 4 XACRO version of robot use code below. Otherwise XACRO for lab 5 will launch. The full path of the XACRO file can be passed into the launch file as well. <br>
+<code>roslaunch lab4_package launch_file.launch use_old_xacro:=true</code><br><br>
 
 Both versions launch with GUI and joint_state_publisher by default<br>
 To disable both the gui and joint_state_publisher use <code>use_gui:=false</code> such as<br>
