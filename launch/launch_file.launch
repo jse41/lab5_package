@@ -23,7 +23,9 @@
 /robot_description parameter on the parameter server -->
   <param if="$(arg use_old_xacro)" name="robot_description" command="$(find
 xacro)/xacro.py --inorder $(arg file)" />
-  <param unless="$(arg use_old_xacro)" name="robot_description" textfile="$(arg file)" />
+<param unless="$(arg use_old_xacro)" name="robot_description" command="$(find
+xacro)/xacro.py --inorder $(arg file)" />
+  <!-- <param unless="$(arg use_old_xacro)" name="robot_description" textfile="$(arg file)" /> -->
 
 
   <!-- Determines whether to use GUI. --> 
