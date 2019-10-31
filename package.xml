@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>lab4_package</name>
+  <name>lab5_package</name>
   <version>0.0.0</version>
-  <description>The lab4_package package</description>
+  <description>The lab5_package package</description>
   
   <!-- This is actually the package for lab5 xml. Adding this for a fresh commit. -->
   
