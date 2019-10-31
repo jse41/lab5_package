@@ -38,5 +38,7 @@ I provided an edited video named lab5_video.mp4 which shows the following: <br>
 -changing the decay rate to 10<br>
 -showing all links are working successfully
 
-
+<h1>Other</h1>
+<a href="https://github.com/mjh244/lab5_package"> Original Package </a>
+Most of this lab was done following an unconventional naming scheme that impacted its ability to be run across platforms, so this package was created to resolve those issues. For this reason, if any runtime errors are to occur, please reference the original package and its README for how to configure the origial package. Both packages were written by students of this lab group. 
 
