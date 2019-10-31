@@ -5,7 +5,7 @@ The purpose of this laboratory was to gain experience using ROS bags and message
 <h1>General Comments</h1>
 Even though this is lab5, some of the files are still named lab4 as I worked directly off of the previous lab files without creating a new folder. In the future I will try to avoid doing that to keep things consistent. Also, you may have to create a folder called lab4_package to store this package if you want to run it easier by using: <br>
 <code>roslaunch lab4_package launch_file.launch</code><br>
-instead of going directly to the end directory to launch the files. I included how to launch the simulator from within the launch directory just in case. In the future I will include the lab package folder itself on github. I didn't include the rosbags or the maps as they are somewhat confidential. <br> 
+instead of going directly to the end directory to launch the files. I included how to launch the simulator from within the launch directory just in case. In the future I will include the lab package folder itself on github. I didn't include the rosbags or the maps as they are somewhat confidential. <br> <br>
 I left some irrelevant files in the urdf folder such as robot.xml and robot.bak as they were mostly leftover from the last lab. In the launch folder there is also a file called launch_file that isn't used in the lab, but that was the original code provided. The code that is used in my package is launch_file.launch. I didn't delete these files yet as I don't want any issues when pushing my files to github but they may be deleted as the deadline nears.<br><br>
 
 <h1>Launch Instruction</h1>
@@ -32,12 +32,12 @@ If set to true, one of the rosbags must be set to provide the external clock sig
 
 <h1>Video</h1>
 I provided an edited video named lab5_video.mp4 which shows the following: <br>
--rvis launching 
--the rosbag starting 
--the mapserver starting
--changing the "Fixed Frame" to the base
--adding the 3 lasers to view the sensor data
--changing the decay rate to 10
+-rvis launching <br>
+-the rosbag starting <br>
+-the mapserver starting<br>
+-changing the "Fixed Frame" to the base<br>
+-adding the 3 lasers to view the sensor data<br>
+-changing the decay rate to 10<br>
 -showing all links are working successfully
 
 
