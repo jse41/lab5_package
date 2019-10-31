@@ -3,25 +3,23 @@
 The purpose of this laboratory was to gain experience using ROS bags and message playback to view a map with sensor data that was taken within the mapped area. <br><br>
 
 <h1>General Comments</h1>
-Even though this is lab5, some of the files are still named lab4 as I worked directly off of the previous lab files without creating a new folder. In the future I will try to avoid doing that to keep things consistent. Also, you may have to create a folder called lab4_package to store this package if you want to run it easier by using: <br>
-<code>roslaunch lab4_package launch_file.launch</code><br>
-instead of going directly to the end directory to launch the files. I included how to launch the simulator from within the launch directory just in case. In the future I will include the lab package folder itself on github. I didn't include the rosbags or the maps as they are somewhat confidential. <br> <br>
+I included how to launch the simulator from within the launch directory just in case. In the future I will include the lab package folder itself on github. I didn't include the rosbags or the maps as they are somewhat confidential. <br> <br>
 I left some irrelevant files in the urdf folder such as robot.xml and robot.bak as they were mostly leftover from the last lab. In the launch folder there is also a file called launch_file that isn't used in the lab, but that was the original code provided. The code that is used in my package is launch_file.launch. I didn't delete these files yet as I don't want any issues when pushing my files to github but they may be deleted as the deadline nears.<br><br>
 
 <h1>Launch Instruction</h1>
 To launch the new lab 5 XACRO version of robot use <br>
-<code>roslaunch lab4_package launch_file.launch</code><br>
+<code>roslaunch lab5_package launch_file.launch</code><br>
 You can also launch while in launch directory using <br>
 <code>roslaunch launch_file.launch</code>
 
 To launch the old lab 4 XACRO version of robot use code below. Otherwise XACRO for lab 5 will launch. use_old_xacro determines whether lab4 or lab5 version will launch, and it is set to false by default so it launches lab5. The full path of the XACRO file can be passed into the launch file as well. <br>
-<code>roslaunch lab4_package launch_file.launch use_old_xacro:=true</code><br>
+<code>roslaunch lab5_package launch_file.launch use_old_xacro:=true</code><br>
 If in launch directroy, you can use <br>
 <code>roslaunch launch_file.launch use_xacro:=true</code><br><br>
 
 Both versions launch with GUI and joint_state_publisher by default<br>
 To disable both the gui and joint_state_publisher use <code>use_gui:=false</code> such as<br>
-<code>roslaunch lab4_package launch_file.launch use_gui:=false</code><br>
+<code>roslaunch lab5_package launch_file.launch use_gui:=false</code><br>
 If in launch directory, then it would be <br>
 <code>roslaunch launch_file.launch use_gui:=false</code> <br><br>
 
