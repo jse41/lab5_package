@@ -213,3 +213,5 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+#This is the CMakeLists.txt for lab5. Adding this line just to make fresh commit
